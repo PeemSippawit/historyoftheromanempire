@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roman Kingdom</title>
-
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <nav class="navbar">
     <div class="logo">SPQR</div>
-
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="kingdom.html">Kingdom</a></li>
@@ -26,36 +22,41 @@
 </nav>
 
 <section class="era-page kingdom-bg">
-
     <div class="content-box">
-
         <h1>Roman Kingdom</h1>
+        <p><strong>753 BC – 509 BC</strong></p>
+        <p>The Roman Kingdom represents the earliest period of Roman history, traditionally beginning with Romulus and ending with the overthrow of the last king.</p>
 
-        <p>753 BC – 509 BC</p>
-
-        <p>
-            The Roman Kingdom represents the earliest period
-            of Roman history, traditionally beginning with
-            Romulus and ending with the overthrow of the last king.
-        </p>
-
-        <!-- JS will fill this -->
-        <div id="timeline"></div>
-
-        <div class="modal" id="timelineModal">
-            <div class="modal-content">
-                <span class="modal-close">&times;</span>
-                <h2 id="modalTitle"></h2>
-                <h4 id="modalYear"></h4>
-                <p id="modalInfo"></p>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="753 BC" data-title="The Founding of Rome" data-description="According to tradition, Rome was founded by Romulus, who became its first king after killing his twin brother Remus.">
+                    <span class="hover-bubble">753 BC: Founding</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="715 BC" data-title="Reign of Numa Pompilius" data-description="The second king of Rome, credited with establishing many of Rome's most important religious and political institutions.">
+                    <span class="hover-bubble">715 BC: Numa's Reign</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="509 BC" data-title="Overthrow of the Monarchy" data-description="Lucius Tarquinius Superbus, the seventh and final king of Rome, was deposed. This marked the end of the Kingdom and the birth of the Roman Republic.">
+                    <span class="hover-bubble">509 BC: Republic Born</span>
+                </div>
             </div>
         </div>
 
     </div>
-
 </section>
 
-<script src="script.js"></script>
+<div id="timeline-modal" class="timeline-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title">Event Title</h2>
+        <h3 id="modal-year">Year</h3>
+        <p id="modal-description">Detailed description will load here.</p>
+    </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
