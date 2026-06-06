@@ -1,65 +1,33 @@
-document.addEventListener("DOMContentLoaded", () => {
+function switchEra(id) {
+  document.querySelectorAll(".era").forEach(el => {
+    el.classList.remove("active");
+  });
 
-    /* SIMPLE PAGE FADE IN */
-    document.body.classList.add("loaded");
+  document.getElementById(id).classList.add("active");
+}
 
-    /* POPUP SYSTEM */
-    const overlay = document.getElementById("overlay");
-    const popup = document.getElementById("popup");
-    const title = document.getElementById("popup-title");
-    const content = document.getElementById("popup-content");
-    const closeBtn = document.getElementById("close");
+/* MODAL ELEMENTS */
+const modal = document.getElementById("modal");
+const titleEl = document.getElementById("modal-title");
+const textEl = document.getElementById("modal-text");
 
-    document.querySelectorAll(".event-btn").forEach(btn => {
+/* ATTACH CLICK EVENTS TO DOTS */
+document.querySelectorAll(".dot").forEach(dot => {
+  dot.addEventListener("click", () => {
+    titleEl.textContent = dot.dataset.title;
+    textEl.textContent = dot.dataset.text;
+    modal.style.display = "block";
+  });
+});
 
-        btn.addEventListener("click", () => {
+/* CLOSE MODAL */
+function closeModal() {
+  modal.style.display = "none";
+}
 
-            title.textContent = btn.dataset.title;
-            content.textContent = btn.dataset.content;
-
-            overlay.style.display = "flex";
-
-        });
-
-    });
-
-    function closePopup() {
-        overlay.style.display = "none";
-    }
-
-    if (closeBtn) {
-        closeBtn.addEventListener("click", closePopup);
-    }
-
-    if (overlay) {
-        overlay.addEventListener("click", (e) => {
-            if (e.target === overlay) {
-                closePopup();
-            }
-        });
-    }
-
-    /* OPTIONAL: smooth page transition */
-    document.querySelectorAll("a").forEach(link => {
-
-        const href = link.getAttribute("href");
-
-        if (href && !href.startsWith("#") && !href.startsWith("http")) {
-
-            link.addEventListener("click", (e) => {
-
-                e.preventDefault();
-
-                document.body.classList.remove("loaded");
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 250);
-
-            });
-
-        }
-
-    });
-
+/* CLOSE WHEN CLICKING OUTSIDE */
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
 });
