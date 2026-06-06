@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roman Kingdom</title>
-
+    <title>Byzantine Empire</title>
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="logo">SPQR</div>
-
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="kingdom.html">Kingdom</a></li>
@@ -24,31 +21,42 @@
     </ul>
 </nav>
 
-<section class="era-page kingdom-bg">
-
+<section class="era-page byzantine-bg">
     <div class="content-box">
+        <h1>Byzantine Empire</h1>
+        <p><strong>AD 395 – 1453</strong></p>
+        <p>The continuation of the Roman Empire in its eastern provinces during Late Antiquity and the Middle Ages, with its capital city at Constantinople.</p>
 
-        <h1>Roman Kingdom</h1>
-
-        <p>
-            753 BC – 509 BC
-        </p>
-
-        <p>
-            The Roman Kingdom represents the earliest period
-            of Roman history, traditionally beginning with
-            Romulus and ending with the overthrow of the last king.
-        </p>
-
-        <div class="timeline-placeholder">
-            Timeline coming next.
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="AD 395" data-title="Division of the Empire" data-description="Following the death of Theodosius I, the Roman Empire is permanently divided into Eastern and Western halves.">
+                    <span class="hover-bubble">AD 395: Empire Divided</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="AD 527" data-title="Reign of Justinian I" data-description="Justinian takes the throne, overseeing a brilliant period of military reconquest, legal codification (Corpus Juris Civilis), and architecture (Hagia Sophia).">
+                    <span class="hover-bubble">AD 527: Justinian's Reign</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="1453" data-title="Fall of Constantinople" data-description="The Ottoman Empire, led by Mehmed the Conqueror, captures Constantinople. This event officially ends the Roman Empire after nearly 1,500 years.">
+                    <span class="hover-bubble">1453: The Final Fall</span>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </section>
 
-<script src="script.js"></script>
+<div id="timeline-modal" class="timeline-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title">Event Title</h2>
+        <h3 id="modal-year">Year</h3>
+        <p id="modal-description">Detailed description will load here.</p>
+    </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
