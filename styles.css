@@ -184,9 +184,32 @@ body.loaded{
     transition:0.3s;
 }
 
+.era-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.era-btn::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
 .era-btn:hover{
     background:#c8a45c;
     color:#1f1610;
+}
+
+.era-btn:hover::after {
+    width: 120%;
+    height: 120%;
 }
 
 .era-page{
