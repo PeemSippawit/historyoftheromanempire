@@ -1,1 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cormorant Garamond', serif;
+    background:#1f1610;
+    color:#f2e6c9;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    background:rgba(35,20,10,0.95);
+
+    border-bottom:2px solid #b18b43;
+
+    z-index:1000;
+}
+
+.logo{
+    font-family:'Cinzel', serif;
+    font-size:1.8rem;
+    font-weight:bold;
+    color:#d8b46a;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#f2e6c9;
+    font-family:'Cinzel', serif;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#d8b46a;
+}
+
+.hero{
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background-image:url("hero.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.5);
+    padding:40px;
+    border-radius:15px;
+}
+
+.hero h1{
+    font-family:'Cinzel', serif;
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.4rem;
+}
+
+.era-section{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:120px 20px;
+    background-attachment:fixed;
+    background-size:cover;
+    background-position:center;
+}
+
+#kingdom{
+    background-image:url("kingdom.jpg");
+}
+
+#republic{
+    background-image:url("republic.jpg");
+}
+
+#empire{
+    background-image:url("empire.jpg");
+}
+
+#byzantine{
+    background-image:url("byzantine.jpg");
+}
+
+.content-box{
+    width:80%;
+    max-width:1200px;
+
+    background:rgba(32,22,15,0.8);
+
+    border:2px solid #b18b43;
+
+    border-radius:15px;
+
+    padding:40px;
+}
+
+.content-box h2{
+    font-family:'Cinzel', serif;
+    font-size:2.5rem;
+
+    margin-bottom:10px;
+}
+
+.timeline-placeholder{
+    margin-top:30px;
+
+    height:120px;
+
+    border:2px dashed #d8b46a;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.2rem;
+}
