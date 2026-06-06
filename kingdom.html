@@ -9,6 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <nav class="navbar">
@@ -40,8 +41,47 @@
             Romulus and ending with the overthrow of the last king.
         </p>
 
-        <div class="timeline-placeholder">
-            Timeline coming next.
+        <div class="timeline">
+
+            <div class="timeline-item"
+                 data-title="Foundation of Rome"
+                 data-year="753 BC"
+                 data-info="Romulus is traditionally credited with founding Rome after the death of Remus.">
+
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">753 BC — Founding of Rome</div>
+                <div class="timeline-tooltip"></div>
+            </div>
+
+            <div class="timeline-item"
+                 data-title="Rule of the Kings"
+                 data-year="700–600 BC"
+                 data-info="Early monarchy period where Rome was ruled by elected kings.">
+
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">Early Kings</div>
+                <div class="timeline-tooltip"></div>
+            </div>
+
+            <div class="timeline-item"
+                 data-title="Fall of Tarquin the Proud"
+                 data-year="509 BC"
+                 data-info="The last Roman king is overthrown, ending the monarchy and beginning the Republic.">
+
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">509 BC — End of Kingdom</div>
+                <div class="timeline-tooltip"></div>
+            </div>
+
+        </div>
+
+        <div class="modal" id="timelineModal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <h4 id="modalYear"></h4>
+                <p id="modalInfo"></p>
+            </div>
         </div>
 
     </div>
