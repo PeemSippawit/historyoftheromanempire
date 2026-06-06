@@ -160,12 +160,12 @@ body.loaded{
 
 
 /* =========================================
-   VERTICAL TIMELINE & MODAL STYLES
+   VERTICAL TIMELINE & MODAL STYLES (ALTERNATING)
    ========================================= */
 
 .timeline-container {
     position: relative;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 20px 0;
     width: 100%;
     display: flex;
@@ -173,6 +173,7 @@ body.loaded{
     align-items: center;
 }
 
+/* The vertical line */
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -184,36 +185,79 @@ body.loaded{
     transform: translateX(-50%);
 }
 
+/* Alternating Layout for Items */
 .timeline-item {
     position: relative;
     margin: 40px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Odd items start on the left */
+    align-items: center;
 }
 
+.timeline-item:nth-child(even) {
+    justify-content: flex-end; /* Even items push to the right */
+}
+
+/* The visible text box */
+.timeline-content {
+    width: 42%;
+    background: rgba(35, 20, 10, 0.85);
+    border: 1px solid #c8a45c;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+/* Align text based on which side of the line it's on */
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+}
+
+/* Big Font for the Year */
+.timeline-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #d8b46a;
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #f2e6c9;
+    margin: 0;
+}
+
+/* The interactive dot */
 .timeline-dot {
-    width: 24px;
-    height: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
     background: #1f1610;
     border: 4px solid #d8b46a;
     border-radius: 50%;
-    position: relative;
     z-index: 2;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .timeline-dot:hover {
     background: #d8b46a;
-    transform: scale(1.3);
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 15px rgba(216, 180, 106, 0.8);
 }
 
+/* The Hover Bubble */
 .hover-bubble {
     position: absolute;
     top: 50%;
-    left: 40px; 
+    left: 50px; 
     transform: translateY(-50%);
     background: rgba(35, 20, 10, 0.95);
     color: #f2e6c9;
@@ -221,7 +265,7 @@ body.loaded{
     border: 1px solid #b18b43;
     border-radius: 6px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
@@ -229,9 +273,10 @@ body.loaded{
     pointer-events: none; 
 }
 
+/* Push bubble to the left for right-sided content */
 .timeline-item:nth-child(even) .hover-bubble {
     left: auto;
-    right: 40px;
+    right: 50px;
 }
 
 .timeline-dot:hover .hover-bubble {
