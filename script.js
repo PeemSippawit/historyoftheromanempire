@@ -1,99 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.body.classList.add("loaded");
+document.body.classList.add("loaded");
 
-    document.querySelectorAll("a").forEach(link => {
+const overlay = document.getElementById("overlay");
+const popupTitle = document.getElementById("popup-title");
+const popupContent = document.getElementById("popup-content");
+const closeBtn = document.getElementById("close");
 
-        const href = link.getAttribute("href");
+document.querySelectorAll(".event-btn").forEach(button => {
 
-        if (
-            href &&
-            !href.startsWith("#") &&
-            !href.startsWith("http")
-        ) {
+    button.addEventListener("click", () => {
 
-            link.addEventListener("click", e => {
+        if (!overlay) return;
 
-                e.preventDefault();
+        popupTitle.textContent = button.dataset.title;
+        popupContent.textContent = button.dataset.content;
 
-                document.body.classList.remove("loaded");
+        overlay.style.display = "flex";
 
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 500);
+    });
 
-            });
+});
+
+if(closeBtn){
+
+    closeBtn.addEventListener("click", () => {
+
+        overlay.style.display = "none";
+
+    });
+
+}
+
+if(overlay){
+
+    overlay.addEventListener("click", (e) => {
+
+        if(e.target === overlay){
+
+            overlay.style.display = "none";
 
         }
 
     });
 
-    const tooltip = document.getElementById("tooltip");
+}
 
-    const modal = document.getElementById("modal-overlay");
+document.querySelectorAll("a").forEach(link => {
 
-    const modalTitle = document.getElementById("modal-title");
+    const href = link.getAttribute("href");
 
-    const modalContent = document.getElementById("modal-content");
+    if(
+        href &&
+        !href.startsWith("#") &&
+        !href.startsWith("http")
+    ){
 
-    const closeBtn = document.getElementById("close-modal");
+        link.addEventListener("click", (e) => {
 
-    const dots = document.querySelectorAll(".timeline-dot");
+            e.preventDefault();
 
-    dots.forEach(dot => {
+            document.body.classList.remove("loaded");
 
-        dot.addEventListener("mousemove", e => {
+            setTimeout(() => {
 
-            tooltip.style.opacity = "1";
+                window.location.href = href;
 
-            tooltip.textContent = dot.dataset.title;
-
-            tooltip.style.left = e.pageX + 15 + "px";
-
-            tooltip.style.top = e.pageY + 15 + "px";
-
-        });
-
-        dot.addEventListener("mouseleave", () => {
-
-            tooltip.style.opacity = "0";
-
-        });
-
-        dot.addEventListener("click", () => {
-
-            modalTitle.textContent = dot.dataset.title;
-
-            modalContent.textContent = dot.dataset.content;
-
-            modal.style.display = "flex";
-
-        });
-
-    });
-
-    if(closeBtn){
-
-        closeBtn.addEventListener("click", () => {
-
-            modal.style.display = "none";
+            }, 300);
 
         });
 
     }
 
-    if(modal){
-
-        modal.addEventListener("click", e => {
-
-            if(e.target === modal){
-
-                modal.style.display = "none";
-
-            }
-
-        });
-
-    }
+});
 
 });
