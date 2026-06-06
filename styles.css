@@ -362,3 +362,14 @@ body.loaded{
 
     cursor:pointer;
 }
+
+.timeline-event{
+    background:red !important;
+}
+
+.timeline-dot{
+    width:50px !important;
+    height:50px !important;
+    background:blue !important;
+    display:block !important;
+}
