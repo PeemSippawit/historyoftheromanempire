@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roman Kingdom</title>
-
+    <title>Roman Empire</title>
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="logo">SPQR</div>
-
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="kingdom.html">Kingdom</a></li>
@@ -24,31 +21,42 @@
     </ul>
 </nav>
 
-<section class="era-page kingdom-bg">
-
+<section class="era-page empire-bg">
     <div class="content-box">
+        <h1>Roman Empire</h1>
+        <p><strong>27 BC – AD 476</strong></p>
+        <p>The post-Republican period of ancient Rome, featuring a massive territorial footprint around the Mediterranean and an autocratic form of government.</p>
 
-        <h1>Roman Kingdom</h1>
-
-        <p>
-            753 BC – 509 BC
-        </p>
-
-        <p>
-            The Roman Kingdom represents the earliest period
-            of Roman history, traditionally beginning with
-            Romulus and ending with the overthrow of the last king.
-        </p>
-
-        <div class="timeline-placeholder">
-            Timeline coming next.
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="27 BC" data-title="Augustus Becomes First Emperor" data-description="Octavian is granted the title 'Augustus' by the Senate, effectively ending the Republic and establishing the Roman Empire.">
+                    <span class="hover-bubble">27 BC: Age of Augustus</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="AD 117" data-title="Maximum Expansion" data-description="Under Emperor Trajan, the Roman Empire reaches its greatest territorial extent, stretching from Britain to Mesopotamia.">
+                    <span class="hover-bubble">AD 117: Greatest Extent</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="AD 476" data-title="Fall of the Western Empire" data-description="Flavius Odoacer deposes Romulus Augustulus, traditionally marking the end of the Western Roman Empire and the start of the Middle Ages in Europe.">
+                    <span class="hover-bubble">AD 476: The West Falls</span>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </section>
 
-<script src="script.js"></script>
+<div id="timeline-modal" class="timeline-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title">Event Title</h2>
+        <h3 id="modal-year">Year</h3>
+        <p id="modal-description">Detailed description will load here.</p>
+    </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
