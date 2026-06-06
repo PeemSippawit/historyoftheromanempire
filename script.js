@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded");
 
+    // ===== PAGE TRANSITION LINKS =====
     document.querySelectorAll("a").forEach(link => {
         const href = link.getAttribute("href");
 
-        if (
-            href &&
-            !href.startsWith("#") &&
-            !href.startsWith("http")
-        ) {
+        if (href && !href.startsWith("#") && !href.startsWith("http")) {
             link.addEventListener("click", e => {
                 e.preventDefault();
 
@@ -20,42 +17,57 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-});
 
-// ===== TIMELINE INTERACTION =====
+    // ===== TIMELINE INTERACTION (SAFE GUARDED) =====
+    const timelineItems = document.querySelectorAll(".timeline-item");
 
-document.querySelectorAll(".timeline-item").forEach(item => {
-    const tooltip = item.querySelector(".timeline-tooltip");
+    if (timelineItems.length > 0) {
+        timelineItems.forEach(item => {
+            const tooltip = item.querySelector(".timeline-tooltip");
 
-    const title = item.dataset.title;
-    const year = item.dataset.year;
-    const info = item.dataset.info;
+            const title = item.dataset.title;
+            const year = item.dataset.year;
+            const info = item.dataset.info;
 
-    item.addEventListener("mouseenter", () => {
-        tooltip.style.display = "block";
-        tooltip.textContent = `${year}: ${info}`;
-    });
+            item.addEventListener("mouseenter", () => {
+                if (!tooltip) return;
+                tooltip.style.display = "block";
+                tooltip.textContent = `${year}: ${info}`;
+            });
 
-    item.addEventListener("mouseleave", () => {
-        tooltip.style.display = "none";
-    });
+            item.addEventListener("mouseleave", () => {
+                if (!tooltip) return;
+                tooltip.style.display = "none";
+            });
 
-    item.addEventListener("click", () => {
-        document.getElementById("modalTitle").textContent = title;
-        document.getElementById("modalYear").textContent = year;
-        document.getElementById("modalInfo").textContent = info;
-        document.getElementById("timelineModal").style.display = "flex";
-    });
-});
+            item.addEventListener("click", () => {
+                const modal = document.getElementById("timelineModal");
+                if (!modal) return;
 
-// close modal
-document.querySelector(".modal-close").addEventListener("click", () => {
-    document.getElementById("timelineModal").style.display = "none";
-});
+                document.getElementById("modalTitle").textContent = title;
+                document.getElementById("modalYear").textContent = year;
+                document.getElementById("modalInfo").textContent = info;
 
-window.addEventListener("click", (e) => {
-    const modal = document.getElementById("timelineModal");
-    if (e.target === modal) {
-        modal.style.display = "none";
+                modal.style.display = "flex";
+            });
+        });
     }
+
+    // ===== MODAL CLOSE (SAFE) =====
+    const closeBtn = document.querySelector(".modal-close");
+    const modal = document.getElementById("timelineModal");
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
+
+    // click outside modal
+    window.addEventListener("click", (e) => {
+        if (!modal) return;
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });
