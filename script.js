@@ -1,3 +1,4 @@
+console.log("JS is running");
 document.addEventListener("DOMContentLoaded", () => {
 
     const timelineData = [
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const timelineContainer = document.getElementById("timeline");
+    console.log(timelineContainer);
 
     timelineData.forEach(item => {
         const div = document.createElement("div");
@@ -69,5 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = "none";
         }
     });
-
 });
