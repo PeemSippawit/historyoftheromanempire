@@ -222,3 +222,84 @@ body.loaded{
 .byzantine-bg{
     background-image:url("images/byzantine.jpg");
 }
+
+/* ===== TIMELINE CORE ===== */
+
+.timeline {
+    position: relative;
+    margin-top: 40px;
+    padding-left: 40px;
+    border-left: 2px solid #c8a45c;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 40px 0;
+    cursor: pointer;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -11px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: #d8b46a;
+    border-radius: 50%;
+    border: 2px solid #1f1610;
+}
+
+.timeline-content {
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid #b18b43;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 400px;
+}
+
+/* hover bubble */
+.timeline-tooltip {
+    position: absolute;
+    left: 30px;
+    top: -10px;
+    background: rgba(20, 12, 8, 0.95);
+    border: 1px solid #c8a45c;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    display: none;
+    width: 250px;
+    z-index: 10;
+}
+
+/* ===== MODAL POPUP ===== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #1f1610;
+    border: 2px solid #c8a45c;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-close {
+    float: right;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #d8b46a;
+}
