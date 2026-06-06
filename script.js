@@ -1,77 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-document.body.classList.add("loaded");
+    /* SIMPLE PAGE FADE IN */
+    document.body.classList.add("loaded");
 
-const overlay = document.getElementById("overlay");
-const popupTitle = document.getElementById("popup-title");
-const popupContent = document.getElementById("popup-content");
-const closeBtn = document.getElementById("close");
+    /* POPUP SYSTEM */
+    const overlay = document.getElementById("overlay");
+    const popup = document.getElementById("popup");
+    const title = document.getElementById("popup-title");
+    const content = document.getElementById("popup-content");
+    const closeBtn = document.getElementById("close");
 
-document.querySelectorAll(".event-btn").forEach(button => {
+    document.querySelectorAll(".event-btn").forEach(btn => {
 
-    button.addEventListener("click", () => {
+        btn.addEventListener("click", () => {
 
-        if (!overlay) return;
+            title.textContent = btn.dataset.title;
+            content.textContent = btn.dataset.content;
 
-        popupTitle.textContent = button.dataset.title;
-        popupContent.textContent = button.dataset.content;
+            overlay.style.display = "flex";
 
-        overlay.style.display = "flex";
+        });
 
     });
 
-});
-
-if(closeBtn){
-
-    closeBtn.addEventListener("click", () => {
-
+    function closePopup() {
         overlay.style.display = "none";
+    }
 
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closePopup);
+    }
 
-}
+    if (overlay) {
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                closePopup();
+            }
+        });
+    }
 
-if(overlay){
+    /* OPTIONAL: smooth page transition */
+    document.querySelectorAll("a").forEach(link => {
 
-    overlay.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
 
-        if(e.target === overlay){
+        if (href && !href.startsWith("#") && !href.startsWith("http")) {
 
-            overlay.style.display = "none";
+            link.addEventListener("click", (e) => {
+
+                e.preventDefault();
+
+                document.body.classList.remove("loaded");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 250);
+
+            });
 
         }
 
     });
-
-}
-
-document.querySelectorAll("a").forEach(link => {
-
-    const href = link.getAttribute("href");
-
-    if(
-        href &&
-        !href.startsWith("#") &&
-        !href.startsWith("http")
-    ){
-
-        link.addEventListener("click", (e) => {
-
-            e.preventDefault();
-
-            document.body.classList.remove("loaded");
-
-            setTimeout(() => {
-
-                window.location.href = href;
-
-            }, 300);
-
-        });
-
-    }
-
-});
 
 });
