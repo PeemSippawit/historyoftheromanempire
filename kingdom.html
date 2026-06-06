@@ -11,104 +11,110 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">SPQR</div>
+<nav class="navbar">
+    <div class="logo">SPQR</div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="kingdom.html">Kingdom</a></li>
-            <li><a href="republic.html">Republic</a></li>
-            <li><a href="empire.html">Empire</a></li>
-            <li><a href="byzantine.html">Byzantine</a></li>
-            <li><a href="credits.html">Credits</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kingdom.html">Kingdom</a></li>
+        <li><a href="republic.html">Republic</a></li>
+        <li><a href="empire.html">Empire</a></li>
+        <li><a href="byzantine.html">Byzantine</a></li>
+        <li><a href="credits.html">Credits</a></li>
+    </ul>
+</nav>
 
-    <section class="era-page kingdom-bg">
+<section class="page bg kingdom-bg">
 
-        <div class="content-box">
+    <div class="box">
 
-            <h1>Roman Kingdom</h1>
+        <h1>Roman Kingdom</h1>
 
-            <p>753 BC – 509 BC</p>
+        <p class="subtitle">753 BC – 509 BC</p>
 
-            <p>
-                The Roman Kingdom represents the earliest period
-                of Roman history, traditionally beginning with
-                Romulus and ending with the overthrow of the last king.
-            </p>
+        <div class="timeline">
 
-            <div class="timeline-container">
+            <div class="event">
+                <div class="dot"></div>
 
-                <div class="timeline-line"></div>
+                <div class="event-content">
+                    <h3>753 BC — Founding of Rome</h3>
+                    <p>Romulus founds Rome after defeating Remus.</p>
 
-                <div class="timeline">
-
-                    <div class="timeline-event">
-                        <div
-                            class="timeline-dot"
-                            data-title="753 BC — Founding of Rome"
-                            data-content="According to Roman tradition, Romulus founded the city of Rome in 753 BC after defeating his twin brother Remus. This event marks the beginning of Roman history.">
-                        </div>
-
-                        <span>753 BC</span>
-                    </div>
-
-                    <div class="timeline-event">
-                        <div
-                            class="timeline-dot"
-                            data-title="716 BC — Numa Pompilius"
-                            data-content="Numa Pompilius became the second king of Rome and is remembered for establishing many religious institutions and traditions.">
-                        </div>
-
-                        <span>716 BC</span>
-                    </div>
-
-                    <div class="timeline-event">
-                        <div
-                            class="timeline-dot"
-                            data-title="616 BC — Tarquinius Priscus"
-                            data-content="Tarquinius Priscus became Rome's fifth king and initiated major public works and infrastructure projects.">
-                        </div>
-
-                        <span>616 BC</span>
-                    </div>
-
-                    <div class="timeline-event">
-                        <div
-                            class="timeline-dot"
-                            data-title="509 BC — Fall of the Monarchy"
-                            data-content="The Roman monarchy ended when Lucius Tarquinius Superbus was overthrown. The Roman Republic was established shortly afterward.">
-                        </div>
-
-                        <span>509 BC</span>
-                    </div>
-
+                    <button class="event-btn"
+                        data-title="753 BC — Founding of Rome"
+                        data-content="According to Roman legend, Romulus founded Rome in 753 BC after killing his twin brother Remus. This marks the beginning of Roman civilization.">
+                        Learn More
+                    </button>
                 </div>
-
             </div>
 
-            <div id="tooltip"></div>
+            <div class="event">
+                <div class="dot"></div>
 
-            <div id="modal-overlay">
+                <div class="event-content">
+                    <h3>716 BC — Numa Pompilius</h3>
+                    <p>Second king introduces religion and law.</p>
 
-                <div id="event-modal">
-
-                    <button id="close-modal">&times;</button>
-
-                    <h2 id="modal-title"></h2>
-
-                    <p id="modal-content"></p>
-
+                    <button class="event-btn"
+                        data-title="716 BC — Numa Pompilius"
+                        data-content="Numa Pompilius established Rome's religious institutions and legal traditions, shaping early Roman society.">
+                        Learn More
+                    </button>
                 </div>
+            </div>
 
+            <div class="event">
+                <div class="dot"></div>
+
+                <div class="event-content">
+                    <h3>616 BC — Tarquinius Priscus</h3>
+                    <p>Expansion and construction era begins.</p>
+
+                    <button class="event-btn"
+                        data-title="616 BC — Tarquinius Priscus"
+                        data-content="Tarquinius Priscus expanded Roman infrastructure, including the Circus Maximus and early urban development.">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="dot"></div>
+
+                <div class="event-content">
+                    <h3>509 BC — Fall of the Monarchy</h3>
+                    <p>Roman Republic is established.</p>
+
+                    <button class="event-btn"
+                        data-title="509 BC — Fall of the Monarchy"
+                        data-content="The last king of Rome was overthrown, ending the monarchy and beginning the Roman Republic.">
+                        Learn More
+                    </button>
+                </div>
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-    <script src="script.js"></script>
+</section>
+
+<!-- POPUP -->
+<div id="overlay">
+
+    <div id="popup">
+
+        <span id="close">&times;</span>
+
+        <h2 id="popup-title"></h2>
+        <p id="popup-content"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
