@@ -236,12 +236,11 @@ body.loaded{
     position: relative;
     margin: 40px 0;
     cursor: pointer;
-    padding-left: 30px;
 }
 
 .timeline-dot {
     position: absolute;
-    left: -10px;
+    left: -49px;
     top: 5px;
     width: 18px;
     height: 18px;
