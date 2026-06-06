@@ -1,73 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("loaded");
 
-    // ===== PAGE TRANSITION LINKS =====
-    document.querySelectorAll("a").forEach(link => {
-        const href = link.getAttribute("href");
-
-        if (href && !href.startsWith("#") && !href.startsWith("http")) {
-            link.addEventListener("click", e => {
-                e.preventDefault();
-
-                document.body.classList.remove("loaded");
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 500);
-            });
+    const timelineData = [
+        {
+            title: "Foundation of Rome",
+            year: "753 BC",
+            info: "Romulus is traditionally credited with founding Rome."
+        },
+        {
+            title: "Early Kings Period",
+            year: "700–600 BC",
+            info: "Early monarchy period ruled by Roman kings."
+        },
+        {
+            title: "Fall of Tarquin the Proud",
+            year: "509 BC",
+            info: "Last king overthrown and Roman Republic begins."
         }
+    ];
+
+    const timelineContainer = document.getElementById("timeline");
+
+    timelineData.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("timeline-item");
+
+        div.dataset.title = item.title;
+        div.dataset.year = item.year;
+        div.dataset.info = item.info;
+
+        div.innerHTML = `
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">${item.year} — ${item.title}</div>
+            <div class="timeline-tooltip"></div>
+        `;
+
+        timelineContainer.appendChild(div);
     });
 
-    // ===== TIMELINE INTERACTION (SAFE GUARDED) =====
-    const timelineItems = document.querySelectorAll(".timeline-item");
+    // hover + click logic (must run AFTER creation)
+    document.querySelectorAll(".timeline-item").forEach(item => {
+        const tooltip = item.querySelector(".timeline-tooltip");
 
-    if (timelineItems.length > 0) {
-        timelineItems.forEach(item => {
-            const tooltip = item.querySelector(".timeline-tooltip");
-
-            const title = item.dataset.title;
-            const year = item.dataset.year;
-            const info = item.dataset.info;
-
-            item.addEventListener("mouseenter", () => {
-                if (!tooltip) return;
-                tooltip.style.display = "block";
-                tooltip.textContent = `${year}: ${info}`;
-            });
-
-            item.addEventListener("mouseleave", () => {
-                if (!tooltip) return;
-                tooltip.style.display = "none";
-            });
-
-            item.addEventListener("click", () => {
-                const modal = document.getElementById("timelineModal");
-                if (!modal) return;
-
-                document.getElementById("modalTitle").textContent = title;
-                document.getElementById("modalYear").textContent = year;
-                document.getElementById("modalInfo").textContent = info;
-
-                modal.style.display = "flex";
-            });
+        item.addEventListener("mouseenter", () => {
+            tooltip.style.display = "block";
+            tooltip.textContent = `${item.dataset.year}: ${item.dataset.info}`;
         });
-    }
 
-    // ===== MODAL CLOSE (SAFE) =====
-    const closeBtn = document.querySelector(".modal-close");
-    const modal = document.getElementById("timelineModal");
-
-    if (closeBtn && modal) {
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
+        item.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
         });
-    }
 
-    // click outside modal
+        item.addEventListener("click", () => {
+            document.getElementById("modalTitle").textContent = item.dataset.title;
+            document.getElementById("modalYear").textContent = item.dataset.year;
+            document.getElementById("modalInfo").textContent = item.dataset.info;
+            document.getElementById("timelineModal").style.display = "flex";
+        });
+    });
+
+    // modal close
+    document.querySelector(".modal-close").addEventListener("click", () => {
+        document.getElementById("timelineModal").style.display = "none";
+    });
+
     window.addEventListener("click", (e) => {
-        if (!modal) return;
+        const modal = document.getElementById("timelineModal");
         if (e.target === modal) {
             modal.style.display = "none";
         }
     });
+
 });
