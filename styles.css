@@ -158,3 +158,67 @@ body.loaded{
 
     font-size:1.2rem;
 }
+
+.home-buttons{
+    margin-top:40px;
+
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.era-btn{
+    padding:15px 30px;
+
+    text-decoration:none;
+
+    color:#f2e6c9;
+
+    border:2px solid #c8a45c;
+
+    border-radius:10px;
+
+    font-family:'Cinzel', serif;
+
+    transition:0.3s;
+}
+
+.era-btn:hover{
+    background:#c8a45c;
+    color:#1f1610;
+}
+
+.era-page{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    padding-top:100px;
+}
+
+.home-bg{
+    background-image:url("images/home.jpg");
+}
+
+.kingdom-bg{
+    background-image:url("images/kingdom.jpg");
+}
+
+.republic-bg{
+    background-image:url("images/republic.jpg");
+}
+
+.empire-bg{
+    background-image:url("images/empire.jpg");
+}
+
+.byzantine-bg{
+    background-image:url("images/byzantine.jpg");
+}
