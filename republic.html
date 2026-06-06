@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roman Kingdom</title>
-
+    <title>Roman Republic</title>
     <link rel="stylesheet" href="styles.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="logo">SPQR</div>
-
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="kingdom.html">Kingdom</a></li>
@@ -24,31 +21,42 @@
     </ul>
 </nav>
 
-<section class="era-page kingdom-bg">
-
+<section class="era-page republic-bg">
     <div class="content-box">
+        <h1>Roman Republic</h1>
+        <p><strong>509 BC – 27 BC</strong></p>
+        <p>An era of immense expansion and political evolution, characterized by a complex constitution centered on the Senate and popular assemblies.</p>
 
-        <h1>Roman Kingdom</h1>
-
-        <p>
-            753 BC – 509 BC
-        </p>
-
-        <p>
-            The Roman Kingdom represents the earliest period
-            of Roman history, traditionally beginning with
-            Romulus and ending with the overthrow of the last king.
-        </p>
-
-        <div class="timeline-placeholder">
-            Timeline coming next.
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="494 BC" data-title="First Secession of the Plebs" data-description="Plebeians abandon Rome to force the Patricians to grant them political representation, leading to the creation of the Tribune of the Plebs.">
+                    <span class="hover-bubble">494 BC: Plebeian Secession</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="264–146 BC" data-title="The Punic Wars" data-description="A series of three massive wars fought against Carthage, establishing Rome as the undisputed dominant power in the Mediterranean.">
+                    <span class="hover-bubble">264 BC: Punic Wars Begin</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" data-year="44 BC" data-title="Assassination of Julius Caesar" data-description="Fearing his dictatorial power, Roman senators assassinate Caesar on the Ides of March, plunging the Republic into its final civil wars.">
+                    <span class="hover-bubble">44 BC: Ides of March</span>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </section>
 
-<script src="script.js"></script>
+<div id="timeline-modal" class="timeline-modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title">Event Title</h2>
+        <h3 id="modal-year">Year</h3>
+        <p id="modal-description">Detailed description will load here.</p>
+    </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
