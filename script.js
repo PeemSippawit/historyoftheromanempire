@@ -1,33 +1,23 @@
-function switchEra(id) {
-  document.querySelectorAll(".era").forEach(el => {
-    el.classList.remove("active");
-  });
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
 
-  document.getElementById(id).classList.add("active");
-}
+    document.querySelectorAll("a").forEach(link => {
+        const href = link.getAttribute("href");
 
-/* MODAL ELEMENTS */
-const modal = document.getElementById("modal");
-const titleEl = document.getElementById("modal-title");
-const textEl = document.getElementById("modal-text");
+        if (
+            href &&
+            !href.startsWith("#") &&
+            !href.startsWith("http")
+        ) {
+            link.addEventListener("click", e => {
+                e.preventDefault();
 
-/* ATTACH CLICK EVENTS TO DOTS */
-document.querySelectorAll(".dot").forEach(dot => {
-  dot.addEventListener("click", () => {
-    titleEl.textContent = dot.dataset.title;
-    textEl.textContent = dot.dataset.text;
-    modal.style.display = "block";
-  });
-});
+                document.body.classList.remove("loaded");
 
-/* CLOSE MODAL */
-function closeModal() {
-  modal.style.display = "none";
-}
-
-/* CLOSE WHEN CLICKING OUTSIDE */
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+        }
+    });
 });
